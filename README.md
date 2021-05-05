@@ -1,2 +1,3 @@
-# CP353-FinalProject
+# CP353-Web Technology
+Final Project
  
