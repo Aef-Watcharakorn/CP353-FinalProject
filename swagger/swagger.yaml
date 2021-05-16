@@ -1,0 +1,213 @@
+openapi: "3.0.0"
+info:
+  description: API Reference
+  version: 1.0.0
+  title: Python Flask RESTful API | Country API
+servers:
+  - url: http://localhost:5000
+paths:
+  /country:
+    get:
+      tags:
+        - Country API
+      summary: Country API
+      parameters:
+      - name: name
+        in: query
+        description: Country name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation search name
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/countrySchemas"
+        '204':
+          description: Country name not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: not found
+    post:
+      tags:
+        - Country API
+      summary: Country API
+      parameters:
+      - name: name
+        in: query
+        description: Country name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation search name
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/countrySchemas"
+        '204':
+          description: Country name not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: not found
+    put:
+      tags:
+        - Country API
+      summary: Country API Edit food
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/editcountrySchema"
+      responses:
+        '200':
+          description: Successful create food
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/countrySchemas"
+        '401':
+          description: Unauthorize
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: Token has expired
+        '204':
+          description: Food name not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: not found
+  /country/delete/{name}:
+    delete:
+      tags:
+        - Country API
+      summary: Country API Delete country
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: name
+          in: path
+          description: Country name
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful delete country
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/countrySchemas"
+        '401':
+          description: Unauthorize
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: Token has expired
+        '204':
+          description: Food name not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: not found
+  /allcountry:
+    get:
+      tags:
+        - Country API
+      summary: Country API
+      responses:
+        '200':
+          description: Successful operation search name
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/allcountrySchemas"
+        '204':
+          description: Country name not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: not found
+
+
+components:
+  schemas:
+    countrySchemas:
+        type: object
+        properties:
+          common_name:
+            type: string
+          official_name:
+            type: string
+          capital:
+            type: string
+          region:
+            type: string
+          subregion:
+            type: string
+          languages:
+            type: string
+          currencies:
+            type: string
+          area:
+            type: number
+    allcountrySchemas:
+        type: object
+        properties:
+          common_name:
+            type: string
+    editcountrySchema:
+        type: object
+        properties:
+          common_name:
+            type: string
+          official_name:
+            type: string
+          capital:
+            type: string
+          region:
+            type: string
+          subregion:
+            type: string
+          languages:
+            type: string
+          currencies:
+            type: string
+          area:
+            type: number
+          
