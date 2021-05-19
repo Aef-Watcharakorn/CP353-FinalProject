@@ -8,6 +8,8 @@ servers:
 paths:
   /ml/country:
     post:
+      tags:
+        - service
       parameters:
       - name: name
         in: query
@@ -20,14 +22,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  prediction: 
-                    type: string
-                    example: asian
-                  confidence:
-                    type: number
-                    example: 1
+                $ref: "#/components/schemas/serviceSchemas"
         '204':
           description: Country name not found
           content:
@@ -71,6 +66,12 @@ paths:
         - Authentication: []
       tags:
         - Country/<string:country_name>
+      parameters:
+        - name: name
+          in: query
+          description: Country name
+          schema:
+            type: string
       
       requestBody:
         required: true
@@ -80,13 +81,7 @@ paths:
               $ref: "#/components/schemas/editcountrySchema"
       responses:
         '200':
-          description: Successful create food
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/countrySchemas"
-        '401':
-          description: Unauthorize
+          description: Successful edited Country
           content:
             application/json:
               schema:
@@ -94,9 +89,19 @@ paths:
                 properties:
                   msg:
                     type: string
-                    example: Token has expired
+                    example: Country has been edited
+        '500':
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: Something went wrong
         '204':
-          description: Food name not found
+          description: Country name not found
           content:
             application/json:
               schema:
@@ -121,13 +126,27 @@ paths:
           required: true
       responses:
         '200':
-          description: Successful delete country
+          description: Successful delete Country
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/countrySchemas"
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: Country has been delete
         '500':
-          description: Food name not found
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: Something went wrong
+        '204':
+          description: Country name not found
           content:
             application/json:
               schema:
@@ -262,6 +281,15 @@ components:
             type: string
           area:
             type: number
+    serviceSchemas:
+        type: object
+        properties:
+          prediction: 
+            type: string
+            example: asian
+          confidence:
+            type: number
+            example: 1
 
     allcountrySchemas:
         type: object
@@ -296,20 +324,9 @@ components:
         properties:
           common_name:
             type: string
-          official_name:
-            type: string
-          capital:
-            type: string
-          region:
-            type: string
-          subregion:
-            type: string
-          languages:
-            type: string
           currencies:
             type: string
-          area:
-            type: number
+
 
     alldataSchemas:
       type: object
@@ -319,7 +336,7 @@ components:
         official_name:
           type: string
         native:
-          type: array
+          type: object
         tld :
           type: string
         cca2:
@@ -347,21 +364,21 @@ components:
         subregion:
           type: string
         languages:
-          type: array
+          type: object
         translation:
-          type: array
+          type: object
         latlng:
-          type: array
+          type: object
         landlocked:
           type: boolean
         borders:
-          type: array
+          type: object
         area:
           type: integer
         flag: 
           type: string
         demonyms:
-          type: array
+          type: object
 
 
           
