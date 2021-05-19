@@ -4,21 +4,28 @@
 <head>
     <title>Currency Report</title>
 </head>
+<main>
+    <section class="mt-5 ">
+        <div class="container">
+            <form>
+                <input type="text" name="query" placeholder="country search">
+                <input type="submit" value="Submit">
+            </form>
+            <hr class="my-5">
 
-<body>
-    <h1>Currency Report</h1>
+            <!--Section: Main info-->
+            <section class="mt-5">
+                <div class="card" style="padding: 20px; border-radius: 1rem; text-align:center;">
+                    {% for item in data %}
+                    <p1> {{item.country}} </p1>
 
-    <form>
-        <input type="text" name="query" placeholder="weather search">
-        <input type="submit" value="Submit">
-    </form>
-    
-
-    
-    <p1> {{data.country}} </p1>
-    <p2> {{data.currency}} </p2>
-
-</body>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </section>
+    <!--Section: Main info-->
+</main>
 
 </html>
 {% endblock %}

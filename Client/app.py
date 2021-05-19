@@ -31,8 +31,12 @@ def get_currency(API):
     url =  API    
     data = urlopen(url).read()      
     parsed = json.loads(data)
-    country = parsed['data'][0]['Country']
-    currency = parsed['data'][0]['Currency']
+    country = []
+    currency = []
+    for i in parsed:
+        country.append(parsed['data'][i]['Country'])
+    # for i in parsed:
+    #     country.append(parsed['data'][i]['Currency'][0])
     result = {'country': country,
                    'currency': currency
                    }
@@ -63,7 +67,7 @@ def get_country(country,API):
 
     country = {'common_name': common_name,
                 'official_name': official_name,
-                'currencies': cur,
+                'currencies': cur[0],
                 'area': area,
                 'capital': capital,
                 'region': region,
