@@ -6,38 +6,48 @@
 </head>
 <main>
     <section class="mt-5 ">
-        <div class="container">
-
-            <hr class="my-5">
+        <div class="container-sm">
 
             <!--Section: Main info-->
-            <section class="mt-5">
-                <div class="card" style="padding: 20px; border-radius: 1rem; text-align:center;">
-                    <h1 style="text-align:center">Currency</h1>
-                    <table class="table align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col">Country</th>
-                                <th scope="col">Currency</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for i in range(total) %}
-                            <tr>
-                                
-                                <th> {{data.country[i]}}</th>
-                                <th> {{data.currency[i]}} </th>
-                            </tr>
-                            {% endfor %}
+            <!-- <section class="mt-5"> -->
 
-                            
-                        </tbody>
-                    </table>
-                    
-
-
+            <!-- Title Card -->
+            <div class="col-md-4 offset-md-8">
+                <!-- Card -->
+                <div class="card" style="background-color: #B997CF;">
+                    <div class="card-body text-white">
+                        <h2 class="card-title" style="text-align:center;"> Currency </h2>
+                    </div>
                 </div>
-            </section>
+                <!-- Card -->
+            </div>
+
+            <div class="card" style="padding: 20px; border-radius: 1rem; text-align:center;">
+                <!-- <h1 style="text-align:center">Currency</h1> -->
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Country</th>
+                            <th scope="col">Currency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(total) %}
+                        <tr>
+
+                            <th> {{data.country[i]}}</th>
+                            <th> {{data.currency[i]}} </th>
+                        </tr>
+                        {% endfor %}
+
+
+                    </tbody>
+                </table>
+
+
+
+            </div>
+            <!-- </section> -->
         </div>
     </section>
     <!--Section: Main info-->

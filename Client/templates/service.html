@@ -1,24 +1,80 @@
 {% extends 'base_layout.html' %} {% block body %}
 <main>
     <section class="mt-5 ">
-        <div class="container">
+        <div class="container-sm">
 
-            
-            <hr class="my-5">
+
+            <!-- <hr class="my-5"> -->
 
             <!--Section: Main info-->
-            <section class="mt-5">
-                <form method="post" action="" enctype="multipart/form-data">
+
+            <!-- Title Card -->
+            <div class="col-md-4 offset-md-8">
+                <!-- Card -->
+                <div class="card" style="background-color: #B997CF;">
+                    <div class="card-body text-white">
+                        <h2 class="card-title" style="text-align:center;"> Service </h2>
+                    </div>
+                </div>
+                <!-- Card -->
+            </div>
+
+
+
+            <div class="card" style="padding: 20px; border-radius: 0.5rem; text-align:center;">
+                <div class="row">
+
+                    <!--Service Card -->
+                    <div style="padding: 20px; border-radius: 0.5rem; text-align:center;">
+                        <!-- Card -->
+                        <div class="bg-image card shadow-1-strong" style="
+                        background-image: url('https://i.pinimg.com/564x/e8/0a/45/e80a45d55e01a9758eec8fa0eab977a6.jpg');
+                        ">
+                            <div class="card-body">
+                                <form method="post" action="" enctype="multipart/form-data">
+                                    <div class="card" style="padding: 20px; border-radius: 1rem; text-align:center;">
+                                        <label for="formFileSm" class="form-label">Small file input example</label>
+                                        <input class="form-control form-control-sm" id="formFileSm" type="file" name="file1" />
+                                        <button type="submit" class="btn btn-light" data-mdb-ripple-color="dark">Send</button>
+
+
+                                        <div class="card" style="padding: 20px; border-radius: 0.5rem; text-align:center;">
+                                            <!-- Card -->
+                                            <div class="bg-image card shadow-1-strong" style="
+                                                    background-color: #FFCDC9;">
+                                                <div class="card-body">
+                                                    <br>
+                                                    <h2 class="card-title text-white">{{url}}</h2>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <!-- Card -->
+                                        </div>
+
+                                        <!-- <h2> {{url}} </h2> -->
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Card -->
+                    </div>
+                </div>
+
+
+
+                <!-- <section class="mt-5"> -->
+                <!-- <form method="post" action="" enctype="multipart/form-data">
                 <div class="card" style="padding: 20px; border-radius: 1rem; text-align:center;">
                     <label for="formFileSm" class="form-label">Small file input example</label>
-                    <input class="form-control form-control-sm" id="formFileSm" type="file" name="file1"/>
-                    <button type="submit" class="btn btn"></button>
+                    <input class="form-control form-control-sm" id="formFileSm" type="file" name="file1" />
+                    <button type="submit" class="btn btn-light" data-mdb-ripple-color="dark">Send</button>
                     <h2> {{url}} </h2>
-                    
+
                 </div>
-            </form>
-            </section>
-        </div>
+            </form> -->
+                <!-- </section> -->
+            </div>
     </section>
     <!--Section: Main info-->
 </main>
