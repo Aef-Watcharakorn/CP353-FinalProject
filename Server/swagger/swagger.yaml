@@ -6,11 +6,35 @@ info:
 servers:
   - url: http://localhost:5000
 paths:
-  /country:
+  /ml/country:
+    post:
+      parameters:
+      - name: name
+        in: query
+        description: Country name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation search name
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/countrySchemas"
+        '204':
+          description: Country name not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: not found
+  /Country:
     get:
       tags:
-        - Country API
-      summary: Country API
+        - Country
       parameters:
       - name: name
         in: query
@@ -34,39 +58,12 @@ paths:
                   message:
                     type: string
                     example: not found
-    post:
-      tags:
-        - Country API
-      summary: Country API
-      parameters:
-      - name: name
-        in: query
-        description: Country name
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Successful operation search name
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/countrySchemas"
-        '204':
-          description: Country name not found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: not found
+    
     put:
       security:
         - Authentication: []
       tags:
-        - Country API
-      summary: Country API Edit food
+        - Country/<string:country_name>
       
       requestBody:
         required: true
@@ -101,13 +98,12 @@ paths:
                   message:
                     type: string
                     example: not found
-  /country/delete/{name}:
+  /countries/{country_name}:
     delete:
       security:
         - Authentication: []
       tags:
-        - Country API
-      summary: Country API Delete country
+        - Country/<string:country_name>
 
       parameters:
         - name: name
@@ -133,11 +129,10 @@ paths:
                   message:
                     type: string
                     example: not found
-  /allcountry:
+  /Country/all:
     get:
       tags:
-        - Country API
-      summary: Country API
+        - Country
       responses:
         '200':
           description: Successful operation search name
@@ -156,11 +151,59 @@ paths:
                     type: string
                     example: not found
 
+  /Country/alldata:
+    get:
+      tags:
+        - Country
+      responses:
+        '200':
+          description: Successful operation search name
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/alldataSchemas"
+        '500':
+          description: Country name not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: not found
+    post:
+      tags:
+        - Country
+      parameters:
+      - name: name
+        in: query
+        description: Country name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation search name
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/alldataSchemas"
+        '204':
+          description: Country name not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: not found
+
+
   /currency:
     get:
       tags:
-        - Country API
-      summary: Country API
+        - Country
       parameters:
       - name: name
         in: query
@@ -212,11 +255,15 @@ components:
             type: string
           area:
             type: number
+
     allcountrySchemas:
         type: object
         properties:
           common_name:
             type: string
+          official_name:
+            type: string
+
     editcountrySchema:
         type: object
         properties:
@@ -236,6 +283,7 @@ components:
             type: string
           area:
             type: number
+
     currencySchemas:
         type: object
         properties:
@@ -255,4 +303,58 @@ components:
             type: string
           area:
             type: number
+
+    alldataSchemas:
+      type: object
+      properties:
+        common_name:
+          type: string
+        official_name:
+          type: string
+        native:
+          type: array
+        tld :
+          type: string
+        cca2:
+          type: string
+        ccn3:
+          type: string
+        cioc:
+          type: string
+        independent:
+          type: boolean
+        status:
+          type: string
+        unMember:
+          type: boolean
+        currencies:
+          type: string
+        idd:
+          type: string
+        capital:
+          type: string
+        altSpellings:
+          type: string
+        region:
+          type: string
+        subregion:
+          type: string
+        languages:
+          type: array
+        translation:
+          type: array
+        latlng:
+          type: array
+        landlocked:
+          type: boolean
+        borders:
+          type: array
+        area:
+          type: integer
+        flag: 
+          type: string
+        demonyms:
+          type: array
+
+
           
