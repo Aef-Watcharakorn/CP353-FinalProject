@@ -7,19 +7,35 @@
 <main>
     <section class="mt-5 ">
         <div class="container">
-            <form>
-                <input type="text" name="query" placeholder="country search">
-                <input type="submit" value="Submit">
-            </form>
+
             <hr class="my-5">
 
             <!--Section: Main info-->
             <section class="mt-5">
                 <div class="card" style="padding: 20px; border-radius: 1rem; text-align:center;">
-                    {% for item in data %}
-                    <p1> {{item.country}} </p1>
+                    <h1 style="text-align:center">Currency</h1>
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col">Country</th>
+                                <th scope="col">Currency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in range(total) %}
+                            <tr>
+                                
+                                <th> {{data.country[i]}}</th>
+                                <th> {{data.currency[i]}} </th>
+                            </tr>
+                            {% endfor %}
 
-                    {% endfor %}
+                            
+                        </tbody>
+                    </table>
+                    
+
+
                 </div>
             </section>
         </div>

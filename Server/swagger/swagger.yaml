@@ -20,7 +20,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/countrySchemas"
+                type: object
+                properties:
+                  prediction: 
+                    type: string
+                    example: asian
+                  confidence:
+                    type: number
+                    example: 1
         '204':
           description: Country name not found
           content:

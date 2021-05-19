@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %} {% block body %}
+<main>
+    <section class="mt-5 ">
+        <div class="container">
+
+            
+            <hr class="my-5">
+
+            <!--Section: Main info-->
+            <section class="mt-5">
+                <form method="post" action="" enctype="multipart/form-data">
+                <div class="card" style="padding: 20px; border-radius: 1rem; text-align:center;">
+                    <label for="formFileSm" class="form-label">Small file input example</label>
+                    <input class="form-control form-control-sm" id="formFileSm" type="file" name="file1"/>
+                    <button type="submit" class="btn btn"></button>
+                    <h2> {{url}} </h2>
+                    
+                </div>
+            </form>
+            </section>
+        </div>
+    </section>
+    <!--Section: Main info-->
+</main>
+{% endblock %}

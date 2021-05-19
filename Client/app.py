@@ -3,7 +3,7 @@ from flask import render_template
 from flask import request
 from urllib.parse import quote
 from urllib.request import urlopen
-import json
+import json, base64, requests
 
 app = Flask(__name__)
 
@@ -16,7 +16,7 @@ country_api = "http://localhost:8000/Country/?query={0}"
 def currency():
     currency = request.args.get('query')
     data = get_currency(currency_api)
-    return render_template("currency.html", data=data)
+    return render_template("currency.html", data=data, total=len(data['country']))
 
 @app.route("/")
 def index():
@@ -26,6 +26,26 @@ def index():
     data = get_country(country,country_api)
     return render_template("index.html", data=data)
 
+@app.route('/service', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        if 'file1' not in request.files:
+            return 'there is no file in form!'
+        file1 = request.files['file1']
+
+        base64_encoded_data = base64.b64encode(file1.read())
+        base64_message = base64_encoded_data.decode('utf-8')
+
+        url = "http://localhost:8000/ml/country"
+        body = {
+            'base64' : base64_message
+            }
+        prediction = requests.post(url, json = body)
+        url = prediction.json()['prediction']
+
+        return render_template('service.html', url=url)
+    return render_template('service.html')
+
 
 def get_currency(API):
     url =  API    
@@ -33,10 +53,15 @@ def get_currency(API):
     parsed = json.loads(data)
     country = []
     currency = []
-    for i in parsed:
-        country.append(parsed['data'][i]['Country'])
-    # for i in parsed:
-    #     country.append(parsed['data'][i]['Currency'][0])
+    for i in parsed['data']:
+        try :
+            currency.append(list(i['Currency'].keys())[0])
+            country.append(i['Country'])
+            #print(list(i['Currency'].keys())[0])
+        except :
+            currency.append("")
+            country.append(i['Country'])
+    
     result = {'country': country,
                    'currency': currency
                    }

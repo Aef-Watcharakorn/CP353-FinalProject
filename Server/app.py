@@ -2,7 +2,13 @@ from flask import Flask, request, jsonify, Response
 from flask_restx import Api, Resource, fields
 from flask_basicauth import BasicAuth
 from werkzeug.middleware.proxy_fix import ProxyFix
-import country
+import country, models, base64, io
+from PIL import Image
+from models import TFModel
+
+
+model = TFModel(model_dir='./ml-model/')
+model.load()
 
 
 app = Flask(__name__)
@@ -211,7 +217,7 @@ class CurrencyList(Resource):
 
 
 #Put&Delete
-@ns_edit.route('/')
+@ns_edit.route('')
 class CountryEdit(Resource):
     #@ns_edit.doc('delete_country')
     #@ns_edit.marshal_with(message_model, code=200)
@@ -233,6 +239,21 @@ class CountryEdit(Resource):
             return {"message":"Food has been updated."}, 200
         elif status == 500:
             return {"message":country_name+" not found."}, 500
+
+
+@api.route('/ml/country')
+class Classification(Resource):
+    def post(self):
+        image_data = base64.b64decode(api.payload['base64'])
+
+        image_temp = Image.open(io.BytesIO(image_data))
+
+        outputs = model.predict(image_temp)
+        return {
+            "prediction": outputs['predictions'][0]['label'],
+            "confidence": outputs['predictions'][0]['confidence']
+            }, 200
+
 
 if __name__ == '__main__':
     app.run(host="localhost", port=8000, debug=True)
