@@ -1,0 +1,27 @@
+{% extends 'base_layout.html' %} {% block body %}
+<main>
+    <section class="mt-5 ">
+        <div class="container">
+            <form>
+                <input type="text" name="query" placeholder="country search">
+                <input type="submit" value="Submit">
+            </form>
+            <hr class="my-5">
+
+            <!--Section: Main info-->
+            <section class="mt-5">
+                <div class="card" style="padding: 20px; border-radius: 1rem; text-align:center;">
+                    <h2> Country : {{data.common_name}} </h2>
+                    <p> Official name : {{data.official_name}} </p>
+                    <p> Capital : {{data.capital}}</p>
+                    <p> Region : {{data.region}} </p>
+                    <p> Subregion : {{data.subregion}} </p>
+                    <p> languages : {{data.languages}} </p>
+                    <p> area : {{data.area}} </p> 
+                </div>
+            </section>
+        </div>
+    </section>
+    <!--Section: Main info-->
+</main>
+{% endblock %}

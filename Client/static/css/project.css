@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+        
+        html,
+        body,
+        header,
+        .carousel {
+            height: 60vh;
+        }
+        
+        @media (max-width: 740px) {
+            html,
+            body,
+            header,
+            .carousel {
+                height: 100vh;
+            }
+        }
+        
+        @media (min-width: 800px) and (max-width: 850px) {
+            html,
+            body,
+            header,
+            .carousel {
+                height: 100vh;
+            }
+        }
+        
+        @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #1c2331 !important;
+            }
+        }
+        
+        .touch {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .touch .card {
+            border: none;
+            border-radius: 1rem;
+        }
+        
+        @media (min-width: 992px) {
+            .touch .card:hover {
+                margin-top: -.25rem;
+                margin-bottom: .25rem;
+                box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+                transition: .2s;
+            }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            right: 1%;
+            bottom: -7.5%;
+            height: 15px;
+            width: 40px;
+            padding: 3px 5px;
+            font-size: 10px;
+            font-weight: bold;
+            color: transparent;
+            opacity: 0.5;
+            z-index: 3;
+            visibility: hidden;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.25s ease-in-out;
+            background-color: #858585;
+        }
+        
+        .back-to-top:hover,
+        .back-to-top:focus {
+            opacity: 1;
+            text-decoration: none;
+        }
+        
+        .back-to-top:focus {
+            outline: thin dotted;
+        }
+        
+        .back-to-top::before,
+        .back-to-top::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-top: 0;
+        }
+        
+        .back-to-top::before {
+            top: -20px;
+            z-index: 4;
+            border-bottom: 20px solid #858585;
+        }
+        
+        .back-to-top::after {
+            bottom: 0;
+            z-index: 5;
+            border-bottom: 20px solid #505050;
+        }
+        
+        .back-to-top:hover,
+        .back-to-top:focus {
+            height: 40px;
+            color: #212223;
+        }
+        
+        .show-back-to-top {
+            display: block;
+            bottom: 1.25%;
+            visibility: visible;
+        }
+        
+        .property-card {
+            height: 18em;
+            width: 14em;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            position: relative;
+            -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            border-radius: 16px;
+            overflow: hidden;
+            -webkit-box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+            box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+        }
+        
+        .property-elon {
+            height: 6em;
+            width: 14em;
+            padding: 1em 2em;
+            position: Absolute;
+            top: 0px;
+            -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/85/Elon_Musk_Royal_Society_%28crop1%29.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .property-jesse {
+            height: 6em;
+            width: 14em;
+            padding: 1em 2em;
+            position: Absolute;
+            top: 0px;
+            -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            background-image: url('https://1.bp.blogspot.com/-9z3tHmJKR3I/XFNOS4Z4wEI/AAAAAAAAC0M/mQRBIrqAfSUNqSO4h1kF_EWoD69ilaR6QCLcBGAs/s1600/Jesse%2BLivermore%2Bprofile.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .property-sarath {
+            height: 6em;
+            width: 14em;
+            padding: 1em 2em;
+            position: Absolute;
+            top: 0px;
+            -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            background-image: url('https://www.infoquest.co.th/wp-content/uploads/2020/08/20200827_IQN_GULF-1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .property-george {
+            height: 6em;
+            width: 14em;
+            padding: 1em 2em;
+            position: Absolute;
+            top: 0px;
+            -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            background-image: url('https://static.reuters.com/resources/r/?m=02&d=20090406&t=2&i=9589834&r=2009-04-06T143704Z_01_BTRE53513B000_RTROPTP_0_USA-ECONOMY-SOROS&w=800');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        /* Bottom Card Section */
+        
+        .property-description {
+            background-color: #FAFAFC;
+            height: 12em;
+            width: 14em;
+            position: absolute;
+            bottom: 0em;
+            -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            padding: 0.5em 1em;
+            text-align: center;
+        }
+        /* Social Icons */
+        
+        .property-social-icons {
+            width: 1em;
+            height: 1em;
+            background-color: black;
+            position: absolute;
+            bottom: 1em;
+            left: 1em;
+            -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        /* Property Cards Hover States */
+        
+        .property-card:hover .property-description {
+            height: 0em;
+            padding: 0px 1em;
+        }
+        
+        .property-card:hover .property-elon {
+            height: 18em;
+        }
+        
+        .property-card:hover .property-jesse {
+            height: 18em;
+        }
+        
+        .property-card:hover .property-sarath {
+            height: 18em;
+        }
+        
+        .property-card:hover .property-george {
+            height: 18em;
+        }
+        
+        .property-card:hover .property-social-icons {
+            background-color: white;
+        }
+        
+        .property-card:hover .property-social-icons:hover {
+            background-color: blue;
+            cursor: pointer;
+        }

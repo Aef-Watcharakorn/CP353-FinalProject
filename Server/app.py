@@ -148,10 +148,10 @@ class Country(Resource):
             result = []
             for item in data:
                  if item['name']['common'].lower() == query.lower():
-                    result.append({item['name']['common']:{'common_name':item['name']['common'],
+                    result.append({'common_name':item['name']['common'],
                     'official_name': item['name']['official'], 'capital': item['capital'],
                     'region':item['capital'], 'subregion':item['subregion'], 'languages':item['languages'],
-                    'currencies': item['currencies'], 'area': item['area']}})
+                    'currencies': item['currencies'], 'area': item['area']})
                     #currency.append(item['currencies'])
                     #print(item['currencies'])
                     response = jsonify({"country":result,"message":"success","status":200})
@@ -166,10 +166,10 @@ class Country(Resource):
             #2ตัว
             x = list()
             for i in country.read_country_json():
-                x.append({i['name']['common']:{'common_name':i['name']['common'],
+                x.append({'common_name':i['name']['common'],
                     'official_name': i['name']['official'], 'capital': i['capital'],
                     'region': i['capital'], 'subregion': i['subregion'], 'languages':i['languages'],
-                    'currencies': i['currencies'], 'area': i['area']}})
+                    'currencies': i['currencies'], 'area': i['area']})
                 #x.append({i['name']['common']:i['name']['official']})
             response = jsonify({"country":x,"message":"success","status":200})
             response.status_code = 200

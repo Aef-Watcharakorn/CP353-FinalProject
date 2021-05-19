@@ -1,0 +1,24 @@
+{% extends 'base_layout.html' %} {% block body %}
+<html>
+
+<head>
+    <title>Currency Report</title>
+</head>
+
+<body>
+    <h1>Currency Report</h1>
+
+    <form>
+        <input type="text" name="query" placeholder="weather search">
+        <input type="submit" value="Submit">
+    </form>
+    
+
+    
+    <p1> {{data.country}} </p1>
+    <p2> {{data.currency}} </p2>
+
+</body>
+
+</html>
+{% endblock %}
