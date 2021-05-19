@@ -33,7 +33,7 @@ paths:
                   message:
                     type: string
                     example: not found
-  /Country:
+  /Countries/{country_name}:
     get:
       tags:
         - Country
