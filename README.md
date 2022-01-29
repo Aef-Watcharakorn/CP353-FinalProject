@@ -10,7 +10,7 @@
 
 ขั้นตอนการ run project
 
-1.ก่อนที่จะ run ต้อง install ตัว libery ให้ครบก่อน
+1.ก่อนที่จะ run ต้อง install ตัว liberty ให้ครบก่อน
 
 2.ไปที่ตัว sever python app.py
 
